@@ -1,42 +1,39 @@
-// API Endpoint definitions
-import request from "request";
-
 const ENDPOINTS = {
   // Abbas
   update_order_production_assign: {
     path: "/api/florist/task/assign",
-    prepareData: (data) => ({
+    prepareData: (data: any) => ({
       lineItemIds: data.line_item_id,
       floristId: data.production_id,
     }),
   },
   update_order_production_complete: {
     path: "/api/florist/task/complete-by-sv",
-    prepareData: (data) => ({
+    prepareData: (data: any) => ({
       lineItemIds: data.line_item_id,
     }),
   },
   update_order_production_unassign: {
     path: "/api/florist/task/unassign",
-    prepareData: (data) => ({
+    prepareData: (data: any) => ({
       lineItemIds: data.line_item_id,
     }),
   },
   update_order_production_undone: {
     path: "/api/florist/task/undone-by-sv",
-    prepareData: (data) => ({
+    prepareData: (data: any) => ({
       lineItemIds: data.line_item_id,
     }),
   },
   update_order_production_complete_by_user: {
     path: "/api/florist/task/complete",
-    prepareData: (data) => ({
+    prepareData: (data: any) => ({
       lineItemId: data.item_id,
     }),
   },
   update_order_procurement_assign: {
     path: "/api/orders/black-mark",
-    prepareData: (data) => ({
+    prepareData: (data: any) => ({
       lineItemIds: data.line_item_ids,
       orderIds: data.order_ids,
       reason: data.reason || "Order moved to DO NOT ROUTE",
@@ -44,7 +41,7 @@ const ENDPOINTS = {
   },
   update_order_procurement_unassign: {
     path: "/api/orders/un-black-mark",
-    prepareData: (data) => ({
+    prepareData: (data: any) => ({
       lineItemIds: data.line_item_ids,
       orderIds: data.order_ids,
     }),
@@ -52,7 +49,7 @@ const ENDPOINTS = {
 
   update_order_card_shipping_bypass: {
     path: "/api/orders/date-amendment",
-    prepareData: (data) => ({
+    prepareData: (data: any) => ({
       orderId: data.order_id,
       deliveryDate: data.delivery_date,
     }),
@@ -60,14 +57,14 @@ const ENDPOINTS = {
 
   update_order_card_shipping: {
     path: "/api/orders/date-amendment",
-    prepareData: (data) => ({
+    prepareData: (data: any) => ({
       orderId: data.order_id,
       deliveryDate: data.delivery_date,
     }),
   },
   update_order_rider: {
     path: "/api/orders/update-delivery-time",
-    prepareData: (data) => ({
+    prepareData: (data: any) => ({
       orderIds: data.order_ids,
       pickupTime: data.pickup_time,
       actor: data.actor,
@@ -76,7 +73,7 @@ const ENDPOINTS = {
   // khairin, 28/5 5.16pm
   update_order_unassign: {
     path: "/api/orders/update-delivery-time",
-    prepareData: (data) => ({
+    prepareData: (data: any) => ({
       orderIds: data.order_id,
       command: "update_order_unassign",
       user: data.user,
@@ -85,8 +82,14 @@ const ENDPOINTS = {
   },
 };
 
+type EndpointKey = keyof typeof ENDPOINTS;
+
 // Generic API call function
-export const makeApiCall = (baseUrl: string, endpoint: string, data: any) => {
+export const makeApiCall = async (
+  baseUrl: string,
+  endpoint: EndpointKey,
+  data: any
+) => {
   const endpointConfig = ENDPOINTS[endpoint];
   if (!endpointConfig) {
     console.error(`Unknown endpoint: ${endpoint}`);
