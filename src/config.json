@@ -1,0 +1,16 @@
+{
+    "dbname":"bloomthis",
+    "dbhost":"bloomthis-prod.cgtglq2k4i5g.ap-southeast-1.rds.amazonaws.com",
+    "dbuser" :"admin",
+    "dbpassword" :"tGAkSshaOXDiFH4",
+    "MYAPI_KEY":"62e15bdec9f7b70f9b1074d4b6718659",
+    "MYSECRET":"86ec28864dca48fccfb81499f0b74cae",
+    "MYTOKEN":"Basic NjJlMTViZGVjOWY3YjcwZjliMTA3NGQ0YjY3MTg2NTk6ODZlYzI4ODY0ZGNhNDhmY2NmYjgxNDk5ZjBiNzRjYWU=",
+    "MYSTORE_DOMAIN":"bloomthis.myshopify.com",
+    "SGAPI_KEY":"7e245b11d9927ebb631257f0518082db",
+    "SGSECRET":"9165c9371522b80a7ae4fe08951655a3",
+    "SGTOKEN":"Basic N2UyNDViMTFkOTkyN2ViYjYzMTI1N2YwNTE4MDgyZGI6OTE2NWM5MzcxNTIyYjgwYTdhZTRmZTA4OTUxNjU1YTM=",
+    "SGSTORE_DOMAIN":"bloomthissg.myshopify.com",
+    "MYDINGTALK_OPS":"https://oapi.dingtalk.com/robot/send?access_token=830e91f598b38e6bb3979f459db4cd4181274a148b1fc9b806a71ef4b0d1f1f8",
+    "MYGOOGLECHAT_OPS":"https://chat.googleapis.com/v1/spaces/AAAAa8Xu-l0/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=eWM1WNxVN5Yg-q4Ihts2GQmKarN67R9J-G-fW4AQfII"
+}
